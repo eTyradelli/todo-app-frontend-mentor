@@ -1,0 +1,487 @@
+
+/***************************/
+/**** CUSTOM PROPERTIES ****/
+/***************************/
+
+:root {
+
+  /* fonts */
+  --ff-sans: 'Josefin Sans', sans-serif;
+
+  /* font sizes */
+  --fs-500: 0.875rem;
+  --fs-400: 0.75rem;
+
+  /* Colors | Dark Mode */
+  --bg-darkest: 235 21% 11%;
+  --bg-dark-main: 235 24% 19%;
+
+  --border-gray-dark: 237 14% 26%;
+  
+  --text-gray-main: 234 39% 85%;
+  --text-gray-dark: 235 16% 43%;
+  --text-gray-secondary: 234 11% 52%;
+  --text-gray-strikethrough: 233 14% 35%;
+  --text-hover: 236 33% 92%;
+  --text-active: 220 98% 61%;
+
+}
+
+@media (min-width: 30em) {
+
+  :root {
+    /* font sizes */
+    --fs-400: .9rem;
+  }
+
+}
+
+@media (min-width: 48em) {
+
+  :root {
+    /* font sizes */
+    --fs-400: 1.125rem;
+  }
+
+}
+
+
+
+
+/***************************/
+/********* RESET ***********/
+/***************************/
+
+
+/* The below reset code is a variation of the one found here: https://piccalil.li/blog/a-modern-css-reset/ */
+
+
+/* Box Sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  outline-offset: 5px;
+}
+
+*:focus-visible{
+  outline-offset: 1px;
+  outline: 3px solid #3924A7;
+  -o-transition: outline-offset .5s;
+  -moz-transition: outline-offset .5s;
+  -webkit-transition: outline-offset .5s;
+  transition: outline-offset .5s;
+}
+
+/* Reset Margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+}
+
+
+
+/* set up the body */
+body {
+  font-family:var(--ff-sans);
+  font-size: var(--fs-400);
+  font-weight: 400;
+  color: hsl(var(--text-gray-main));
+  background-color: hsl(var(--bg-darkest));
+  line-height: 1;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* make images easier to work with */
+img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* make forms easier to work with */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: hsl(var(--clr-link));
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* remove animations for people who have turned them off */
+@media (prefers-reduced-motion: reduce) {  
+  *,
+  *::before,
+  *::after {
+    -moz-animation-duration: 0.01ms !important;
+    -webkit-animation-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+
+    -moz-animation-iteration-count: 1 !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+
+    -o-transition-duration: 0.01ms !important;
+    -moz-transition-duration: 0.01ms !important;
+    -webkit-transition-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
+  }
+}
+
+/****************************/
+/******* SR ONLY ************/
+/****************************/
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+
+/* .skip-to-content {
+  position: absolute;
+  z-index: 9999;
+  background: hsl( var(--clr-white) );
+  color: hsl( var(--clr-dark) );
+  padding: .5em 1em;
+  margin-inline: auto;
+
+  -o-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+
+  -o-transition: transform .3s ease-in-out;
+  -moz-transition: transform .3s ease-in-out;
+  -webkit-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+}
+
+.skip-to-content:focus {
+  -o-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+} */
+
+
+/******************************/
+/*********** HEADER ***********/
+/******************************/
+
+
+header{
+  background-image: url('images/bg-mobile-dark.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: clamp(200px, 30vw, 300px);
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  padding-top: clamp(3em, 10vw, 10em);
+  width: min(90vw, 540px);
+  margin: 0 auto;
+}
+
+.logo img {
+  width: 108px;
+}
+
+@media (min-width: 23.5em) {
+  header {
+    background-image: url('images/bg-desktop-dark.jpg');
+  }
+}
+
+@media (min-width: 48em) {
+  .header__inner {
+    padding-top: clamp(3em, 10vw, 6em);
+  }
+
+  .logo img {
+    width: 167px;
+  }
+}
+
+
+/******************************/
+/*********** MAIN *************/
+/******************************/
+
+main {
+  width: min(90vw, 540px);
+  margin: -8em auto 0;
+}
+
+@media (min-width: 30em) {
+  main {
+    margin: -6em auto 0;
+  }
+}
+
+
+/* New task input */
+
+.todo__new-task {
+  background-color: hsl(var(--bg-dark-main));
+  border-radius: 5px;
+  padding: 14px 22px;
+}
+
+.todo__new-task form {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  align-items: center;
+  gap: .5rem;
+}
+
+.todo__new-task-input::placeholder {
+  color: hsl(var(--text-gray-secondary));
+}
+
+.todo__new-task-input {
+  background: transparent;
+  border: none;
+  color: hsl(var(--text-gray-main));
+}
+
+.todo__new-task button {
+  transform: scale(0.7, 0.7) rotate(45deg);
+}
+
+
+
+
+/* Todo list */
+
+.todo__body {
+  background-color: hsl(var(--bg-dark-main));
+  border-radius: 5px;
+  margin-block: 16px;
+}
+
+.todo__task {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  align-items: center;
+  min-height: 64px;
+  padding: 14px 20px;
+  border-bottom: 1px solid hsl(var(--border-gray-dark));
+  cursor: pointer;
+}
+
+.todo__task [type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.custom-checkbox__wrapper {
+  background: hsl(var(--border-gray-dark));
+  padding: 1px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-inline: 5px 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.todo__task:hover .custom-checkbox__wrapper,
+[type="checkbox"]:checked + label .custom-checkbox__wrapper {
+  background: linear-gradient(145deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.custom-checkbox {
+  border-radius: 50%;
+  background: hsl(var(--bg-dark-main));
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.custom-checkbox svg {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+[type="checkbox"]:checked + label .custom-checkbox {
+  background: linear-gradient(145deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+[type="checkbox"]:checked + label svg {
+  opacity: 1;
+}
+
+.todo__task label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: hsl(var(--text-gray-strikethrough));
+}
+
+.todo__delete-task {
+  transform: scale(0.7,0.7);
+  opacity: 0;
+}
+
+.todo__task:hover .todo__delete-task {
+  opacity: 1;
+}
+
+
+
+/* Todo bottom controls */
+
+.todo__body__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  color: hsl(var(--text-gray-dark));
+}
+
+.todo__filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-500);
+  background-color: hsl(var(--bg-dark-main));
+  border-radius: 5px;
+  padding: 14px 20px;
+  gap: 1.3rem;
+}
+
+.todo__body__controls button,
+.todo__filters button {
+  color: hsl(var(--text-gray-dark));
+}
+
+.todo__body__controls button:hover,
+.todo__filters button:hover {
+  color: hsl(var(--text-hover));
+}
+
+.todo__filters button:active {
+
+}
+
+.todo__filters--desktop {
+  display: none;
+}
+
+main p:last-child {
+  text-align: center;
+  margin-top: 16px;
+  color: hsl(var(--text-gray-dark));
+}
+
+@media (min-width: 48em) {
+  
+  .custom-checkbox__wrapper {
+    margin-inline: 5px 20px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .todo__body__controls{
+    font-size: var(--fs-500);
+  }
+  
+  .todo__filters--mobile {
+    display: none;
+  }
+
+  .todo__filters--desktop {
+    display: flex;
+    font-size: var(--fs-500);
+    padding-block: 0;
+  }
+
+  main p:last-child {
+    font-size: var(--fs-500);
+  }
+}
+
+
+/******************************/
+/********** FOOTER ************/
+/******************************/
+
+footer {
+  padding-block: 40px 10px;
+  color: hsl(var(--text-gray-dark));
+  width: 90vw;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+@media (min-width: 48em) {
+  
+  footer{
+    font-size: var(--fs-500);
+  }
+
+}
