@@ -433,7 +433,7 @@ main {
 
 main p:last-child {
   text-align: center;
-  margin-top: 16px;
+  margin-top: 20px;
   color: hsl(var(--text-gray-dark));
 }
 
