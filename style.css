@@ -247,7 +247,7 @@ header{
   height: clamp(200px, 30vw, 300px);
 }
 
-.header.lightmode {
+header.lightmode {
   background-image: url('images/bg-mobile-light.jpg');
 }
 
