@@ -46,15 +46,25 @@
 }
 
 
+.lightmode {
 
+  /* Colors | Light Mode */
+  --bg-darkest: 0, 0%, 98%;
+  --bg-dark-main: 0 0% 100%;
+
+  --border-gray-dark: 236 32% 92%;
+
+  --text-gray-main: 235 19% 35%;
+  --text-gray-dark: 235 9% 61%;
+  --text-gray-secondary: 235 9% 61%;
+  --text-gray-strikethrough: 233 11% 84%;
+  --text-hover: 235 19% 35%;
+
+}
 
 /***************************/
 /********* RESET ***********/
 /***************************/
-
-
-/* The below reset code is a variation of the one found here: https://piccalil.li/blog/a-modern-css-reset/ */
-
 
 /* Box Sizing */
 *,
@@ -64,14 +74,18 @@
   outline-offset: 5px;
 }
 
-*:focus-visible{
+*:focus-visible {
+  outline: none;
+}
+
+/* *:focus-visible{
   outline-offset: 1px;
   outline: 3px solid #3924A7;
   -o-transition: outline-offset .5s;
   -moz-transition: outline-offset .5s;
   -webkit-transition: outline-offset .5s;
   transition: outline-offset .5s;
-}
+} */
 
 /* Reset Margins */
 body,
@@ -118,6 +132,8 @@ body {
 ul[role='list'],
 ol[role='list'] {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 button {
@@ -231,6 +247,10 @@ header{
   height: clamp(200px, 30vw, 300px);
 }
 
+.header.lightmode {
+  background-image: url('images/bg-mobile-light.jpg');
+}
+
 .header__inner {
   display: flex;
   justify-content: space-between;
@@ -243,9 +263,25 @@ header{
   width: 108px;
 }
 
+.toggle-moon {
+  display: none;
+}
+
+body.lightmode .toggle-moon{
+  display: block;
+}
+
+body.lightmode .toggle-sun{
+  display: none;
+}
+
 @media (min-width: 23.5em) {
   header {
     background-image: url('images/bg-desktop-dark.jpg');
+  }
+  
+  header.lightmode {
+    background-image: url('images/bg-desktop-light.jpg');
   }
 }
 
@@ -282,6 +318,15 @@ main {
   background-color: hsl(var(--bg-dark-main));
   border-radius: 5px;
   padding: 14px 22px;
+  -webkit-box-shadow: 0px 35px 50px -5px hsl(0 0% 0% / 0.5); 
+  box-shadow: 0px 35px 50px -5px hsl(0 0% 0% / 0.5);
+  transition: transform .3s ease;
+}
+
+.todo__new-task:focus-within {
+  -webkit-box-shadow: 0px 35px 50px -5px hsl(0 0% 0% / 0.5);
+  box-shadow: 0px 35px 45px -5px hsl(0 0% 0% / 0.5);
+  transform: scale(1.01);
 }
 
 .todo__new-task form {
@@ -303,6 +348,7 @@ main {
 
 .todo__new-task button {
   transform: scale(0.7, 0.7) rotate(45deg);
+  padding-inline: 4px;
 }
 
 
@@ -314,6 +360,8 @@ main {
   background-color: hsl(var(--bg-dark-main));
   border-radius: 5px;
   margin-block: 16px;
+  -webkit-box-shadow: 0px 35px 50px -15px hsl(0 0% 0% / 0.5); 
+  box-shadow: 0px 35px 50px -15px hsl(0 0% 0% / 0.5);
 }
 
 .todo__task {
@@ -339,6 +387,7 @@ main {
   margin-inline: 5px 10px;
   width: 20px;
   height: 20px;
+  min-width: 20px;
 }
 
 .todo__task:hover .custom-checkbox__wrapper,
@@ -423,8 +472,8 @@ main {
   color: hsl(var(--text-hover));
 }
 
-.todo__filters button:active {
-
+.todo__filters button.active {
+  color: hsl(var(--text-active));
 }
 
 .todo__filters--desktop {
