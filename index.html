@@ -11,8 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   
-  <script defer src="todo.js"></script>
   <script defer src="lightmode.js"></script>
+  <script defer src="todo.js"></script>
 
 </head>
 <body>
@@ -37,7 +37,7 @@
 
     <div class="todo__body">
       
-      <ul class="todo__body__tasks" role="list">
+      <ul class="todo__body__tasks draggable-list" role="list">
 
       </ul>
 
@@ -72,11 +72,13 @@
   </footer>
 
   <template id="todo__template">
-    <li class="todo__task" data-todo-item>
+    <li class="todo__task draggable" draggable="true" data-todo-item>
       <input type="checkbox" data-checkbox>
       <label><div class="custom-checkbox__wrapper"><div class="custom-checkbox"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg></div></div></label>
       <button class="todo__delete-task"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg></button>
     </li>
   </template>
+
+  <script src="dragndrop.js"></script>
 </body>
 </html>
