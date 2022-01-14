@@ -240,8 +240,7 @@ a:hover {
 /****** UTILITY CLASSES *******/
 /******************************/
 
-.dragging{
-  /* transform: scale(1.02); */
+.todo__task.dragging{
   -webkit-box-shadow: 0px 0px 20px 10px hsl(0 0% 0% / 0.4); 
   box-shadow: 0px 0px 20px 10px hsl(0 0% 0% / 0.4);
 }
@@ -249,10 +248,6 @@ a:hover {
 body.lightmode .dragging{
   -webkit-box-shadow: 0px 0px 20px 10px hsl(0 0% 0% / 0.1); 
   box-shadow: 0px 0px 20px 10px hsl(0 0% 0% / 0.1);
-}
-
-.underdrag{
-  opacity:0.3;
 }
 
 

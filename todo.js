@@ -251,6 +251,7 @@ window.addEventListener('load', function () {
   draggables = document.querySelectorAll('.draggable');
   
   draggables.forEach(draggable => {
+    
     draggable.addEventListener('dragstart', e => {
       draggable.classList.add('dragging');
       const img = new Image();
@@ -262,6 +263,7 @@ window.addEventListener('load', function () {
       draggable.classList.remove('dragging');
       saveTasks();
     })
+    
   })
 
   tasksContainer.addEventListener('dragover', e=> {
