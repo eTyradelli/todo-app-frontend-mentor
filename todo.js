@@ -11,7 +11,7 @@ const initialTodos = [
   {
     id: "initialTask-1",
     name: "Complete online JavaScript course",
-    complete: false
+    complete: true
   },
   {
     id: "initialTask-2",
@@ -33,6 +33,11 @@ const initialTodos = [
     name: "Pick up groceries",
     complete: false
   },
+  {
+    id: "initialTask-6",
+    name: "Complete Todo App on Frontend Mentor",
+    complete: false
+  }
 ]
 
 // If local storage has no items saved, then load original HTML todos.
