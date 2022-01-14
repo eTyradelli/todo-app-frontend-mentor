@@ -33,9 +33,9 @@ Users should be able to:
 
 ### Screenshot
 
-![](finished-project-live-photos/todo-app-desktop-dark-mode.png)
-![](finished-project-live-photos/todo-app-desktop-light-mode.png)
-![](finished-project-live-photos/todo-app-mobile-dark-mode.png)
+![](images/finished-project-live-photos/todo-app-desktop-dark-mode.png)
+![](images/finished-project-live-photos/todo-app-desktop-light-mode.png)
+![](images/finished-project-live-photos/todo-app-mobile-dark-mode.png)
 
 
 ### Links
@@ -45,7 +45,7 @@ Users should be able to:
 
 ## My process
 
-This was the most JS-heavy project I've worked on yet, so I spent most of time to get things to work. I used local storage to give the user the opportunity to save their preferences. I also used the drag and drop API and the audio API for some extra features.
+This was the most JS-heavy project I've worked on yet, so I spent most of time getting things to work. I used local storage to give the user the opportunity to save their preferences. I also used the drag and drop API and the audio API for some extra features.
 
 
 ### Built with
