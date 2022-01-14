@@ -31,7 +31,7 @@
   <main>
 
     <div class="todo__new-task">
-      <form action="" data-new-task-form>
+      <form data-new-task-form>
         <button class="todo__add-task" aria-label="Add new task"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg></button>
         <input type="text" class="todo__new-task-input" data-new-task-input placeholder="Create a new todo" aria-label="new task name">
       </form>
@@ -68,14 +68,14 @@
 
   <footer>
     <div class="todo__attribution">
-      Coded by Eleana Tyradelli: <a href="https://www.linkedin.com/in/eleanatyradelli/" style="color: hsl(var(--text-hover))">Linkedin</a> / <a href="https://codepen.io/eTyradelli" style="color: hsl(var(--text-hover))">Codepen</a> | Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by Eleana Tyradelli: <a href="https://www.linkedin.com/in/eleanatyradelli/" style="color: hsl(var(--text-hover));">Linkedin</a> / <a href="https://codepen.io/eTyradelli" style="color: hsl(var(--text-hover));">Codepen</a> | Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     </div>
   </footer>
 
   <template id="todo__template">
     <li class="todo__task draggable" draggable="true" data-todo-item>
       <input type="checkbox" data-checkbox>
-      <label><div class="custom-checkbox__wrapper"><div class="custom-checkbox"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg></div></div></label>
+      <label><span class="custom-checkbox__wrapper"><span class="custom-checkbox"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg></span></span></label>
       <button class="todo__delete-task" aria-label="Delete this task"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg></button>
     </li>
   </template>
