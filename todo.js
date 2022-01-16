@@ -247,7 +247,9 @@ function filterComplete(){
 
 // Drag n drop
 
-window.addEventListener('load', function () {
+window.addEventListener('load', dragFunctionality);
+
+function dragFunctionality() {
   draggables = document.querySelectorAll('.draggable');
   
   draggables.forEach(draggable => {
@@ -291,5 +293,5 @@ window.addEventListener('load', function () {
     }, { offset: Number.NEGATIVE_INFINITY }).element
   }
   
-})
+}
 
