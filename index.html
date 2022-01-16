@@ -30,35 +30,35 @@
 
   <main>
 
-    <div class="todo__new-task">
+    <div class="new-todo">
       <form data-new-task-form>
-        <button class="todo__add-task" aria-label="Add new task"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg></button>
-        <input type="text" class="todo__new-task-input" data-new-task-input placeholder="Create a new todo" aria-label="new task name">
+        <button class="new-todo__add" aria-label="Add new task"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg></button>
+        <input type="text" class="new-todo__input" data-new-task-input placeholder="Create a new todo" aria-label="new task name">
       </form>
     </div>
 
-    <div class="todo__body">
+    <div class="todo-main">
       
-      <ul class="todo__body__tasks draggable-list" role="list">
+      <ul class="todo-main__list draggable-list" role="list" data-todo-list>
 
       </ul>
 
-      <div class="todo__body__controls">
-        <p class="todo__count">5 items remaining</p>
-        <div class="todo__filters todo__filters--desktop">
-          <button class="todo__filters__btn todo__filters__btn--active" data-filter-all>All</button>
-          <button class="todo__filters__btn" data-filter-incomplete>Active</button>
-          <button class="todo__filters__btn" data-filter-complete>Completed</button>
+      <div class="todo-main__controls">
+        <p class="todo-main__controls__count" data-todo-counter>5 items remaining</p>
+        <div class="todo-main__controls__filters todo-main__controls__filters--desktop">
+          <button class="todo-main__controls__filters__btn" data-filter-all>All</button>
+          <button class="todo-main__controls__filters__btn" data-filter-incomplete>Active</button>
+          <button class="todo-main__controls__filters__btn" data-filter-complete>Completed</button>
         </div>
         <button class="todo__controls__btn todo__controls__clear-tasks" data-clear-completed>Clear Completed</button>
       </div>
 
     </div>
 
-    <div class="todo__filters todo__filters--mobile">
-      <button class="todo__filters__btn todo__filters__btn--active" data-filter-all>All</button>
-      <button class="todo__filters__btn" data-filter-incomplete>Active</button>
-      <button class="todo__filters__btn" data-filter-complete>Completed</button>
+    <div class="todo-main__controls__filters todo-main__controls__filters--mobile">
+      <button class="todo-main__controls__filters__btn" data-filter-all>All</button>
+      <button class="todo-main__controls__filters__btn" data-filter-incomplete>Active</button>
+      <button class="todo-main__controls__filters__btn" data-filter-complete>Completed</button>
     </div>
 
     <p class="todo__hint">Drag and drop to reorder list</p>
@@ -72,11 +72,11 @@
     </div>
   </footer>
 
-  <template id="todo__template">
-    <li class="todo__task draggable" draggable="true" data-todo-item>
+  <template id="todo__template" data-todo-template>
+    <li class="todo draggable" draggable="true" data-todo-item>
       <input type="checkbox" data-checkbox>
       <label><span class="custom-checkbox__wrapper"><span class="custom-checkbox"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg></span></span></label>
-      <button class="todo__delete-task" aria-label="Delete this task"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg></button>
+      <button class="todo__delete" aria-label="Delete this task"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg></button>
     </li>
   </template>
 
