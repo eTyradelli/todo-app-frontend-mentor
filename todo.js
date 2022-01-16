@@ -2,7 +2,7 @@ const tasksContainer = document.querySelector('[data-todo-list]');
 const newTaskForm = document.querySelector('[data-new-task-form]');
 const newTaskInput = document.querySelector('[data-new-task-input]');
 const todoCountElement = document.querySelector('[data-todo-counter]');
-const taskTemplate = document.getElementById('[data-todo-template]');
+const taskTemplate = document.querySelector('[data-todo-template]');
 
 const LOCAL_STORAGE_TASK_KEY = 'todo.listOfTasks';
 let tasks = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TASK_KEY)) || [];
