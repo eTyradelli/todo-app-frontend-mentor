@@ -251,23 +251,46 @@ window.addEventListener('load', dragFunctionality);
 
 function dragFunctionality() {
   draggables = document.querySelectorAll('.draggable');
-  
+  let touchTarget = "";
+
   draggables.forEach(draggable => {
-    
-    draggable.addEventListener('dragstart', e => {
-      draggable.classList.add('dragging');
-      const img = new Image();
-      img.src = 'images/todo-dragndrop-transparency.png';
-      e.dataTransfer.setDragImage(img, 0, 0);
-    })
-    
-    draggable.addEventListener('dragend', () => {
-      draggable.classList.remove('dragging');
-      saveTasks();
-    })
-    
+    dragStart(draggable);
+    dragEnd(draggable);
+    dragOverTouch(draggable);
+  })
+  dragOver();
+}
+
+
+function dragStart(draggable){
+  draggable.addEventListener('dragstart', e => {
+    draggable.classList.add('dragging');
+    const img = new Image();
+    img.src = 'images/todo-dragndrop-transparency.png';
+    e.dataTransfer.setDragImage(img, 0, 0);
   })
 
+  draggable.addEventListener("touchstart", e => {
+    draggable.classList.add('dragging');
+    touchTarget = e.currentTarget;
+  });
+}
+
+
+function dragEnd(draggable){
+  draggable.addEventListener('dragend', () => {
+    draggable.classList.remove('dragging');
+    saveTasks();
+  })
+
+  draggable.addEventListener("touchend", () => {
+    draggable.classList.remove('dragging');
+    saveTasks();
+  });
+}
+
+
+function dragOver(){
   tasksContainer.addEventListener('dragover', e=> {
     e.preventDefault();
     const afterElement = getDragAfterElement(tasksContainer, e.clientY);
@@ -278,20 +301,35 @@ function dragFunctionality() {
       tasksContainer.insertBefore(currentDraggable, afterElement);
     }
   })
+}
 
-  function getDragAfterElement(container, y) {
-    const draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')]
-  
-    return draggableElements.reduce((closest, child) => {
-      const box = child.getBoundingClientRect();
-      const offset = y - box.top - box.height / 2;
-      if (offset < 0 && offset > closest.offset) {
-        return { offset: offset, element: child }
+
+function dragOverTouch(draggable){
+  draggable.addEventListener('touchmove', (ev) => {
+    ev.preventDefault();
+    if(draggable.classList.contains('dragging')){
+      const afterElement = getDragAfterElement(tasksContainer, ev.touches[0].clientY);
+      if (afterElement == null) {
+        tasksContainer.appendChild(touchTarget);
       } else {
-        return closest
+        tasksContainer.insertBefore(touchTarget, afterElement);
       }
-    }, { offset: Number.NEGATIVE_INFINITY }).element
-  }
-  
+    }
+  })
+}
+
+
+function getDragAfterElement(container, y) {
+  const draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')]
+  return draggableElements.reduce((closest, child) => {
+    const box = child.getBoundingClientRect();
+    const offset = y - box.top - box.height / 2;
+    if (offset < 0 && offset > closest.offset) {
+      return { offset: offset, element: child }
+    } else {
+      return closest
+    }
+  }, 
+  { offset: Number.NEGATIVE_INFINITY }).element
 }
 
